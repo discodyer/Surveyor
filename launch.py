@@ -59,7 +59,7 @@ def arm_and_takeoff(aTargetAltitude):
         time.sleep(1)
 
 # 调用上面声明的arm_and_takeoff函数，目标高度1m
-arm_and_takeoff(1)
+arm_and_takeoff(1.3)
 
 # 设置在运动时，默认的空速为3m/s
 # print("Set default/target airspeed to 3")
@@ -87,13 +87,16 @@ arm_and_takeoff(1)
 # vehicle.simple_goto(point2, groundspeed=10)
 
 # 与之前一样，延时30s
-time.sleep(10)
+time.sleep(30)
 
 # 发送"返航"指令
 print("Returning to Launch")
 # 返航，只需将无人机的飞行模式切换成"RTL(Return to Launch)"
 # 无人机会自动返回home点的正上方，之后自动降落
-vehicle.mode = VehicleMode("RTL")
+# vehicle.mode = VehicleMode("RTL")
+
+vehicle.mode = VehicleMode("LAND")
+
 
 # 退出之前，清除vehicle对象
 print("Close vehicle object")
